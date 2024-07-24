@@ -1,12 +1,13 @@
-document
-  .getElementById("selectedOptionVillageR88")
-  .setAttribute("selected", "selected");
 
 document
-  .getElementById("userSelection")
-  .addEventListener("change", function () {
+  ?.getElementById("selectedOptionVillageR88")
+  ?.setAttribute("selected", "selected");
+
+document
+  ?.getElementById("userSelection")
+  ?.addEventListener("change", function () {
     const selectedUser = this.value;
-    fetch("/api/?id=" + selectedUser, {
+    fetch(`/api/?id=${selectedUser}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
