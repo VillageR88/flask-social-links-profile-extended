@@ -1,0 +1,10 @@
+{
+    "name": "your-project-name",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "tsc && python3 app/freeze.py && mkdir -p public && cp -r app/build/* public/"
+    },
+    "devDependencies": {
+        "typescript": "^4.0.0"
+    }
+}

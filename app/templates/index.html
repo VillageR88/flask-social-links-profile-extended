@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Product list with cart">
+    <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" type="image/png">
+    <title>{{ siteTitle }}</title>
+</head>
+
+<body>
+    <div>
+        <select title="Select an option">
+            <option>Frontend Mentor</option>
+        </select>
+        <select id="userSelection" title="User Selection">
+            {% for user in data|sort %}
+            <option id="selectedOption{{ user }}">
+                {{ user }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+    <main>
+        <img src="https://avatars.githubusercontent.com/u/139210946?v=4" title="" width="88px" height="88px" id="avatar"
+            alt="">
+        <div>
+            <h1 id="username">Karol</h1>
+            <p id="location">Poland</p>
+        </div>
+        <p id="bio">"discord: villager.88"</p>
+        <ul id="links">
+            <li><a href="https://www.codewars.com/users/VillageR.">Codewars</a></li>
+            <li><a
+                    href="https://villager88.github.io/Frontend_Mentor/link-sharing-app/share/?userEmail=karol.piecuch@wp.pl">website</a>
+            </li>
+            <li><a href="https://github.com/VillageR88">gitHub</a></li>
+        </ul>
+    </main>
+
+    {% if config['ENVIRONMENT'] != 'development' %}
+    <script src="{{ url_for('static', filename='scripts/main.ts') }}"></script>
+    {% else %}
+    <script src="{{ url_for('static', filename='dist/main.js') }}"></script>
+    {% endif %}
+
+</body>
+
+</html>
