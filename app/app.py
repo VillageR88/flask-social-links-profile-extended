@@ -12,6 +12,8 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
     app.config['ENV'] = os.getenv('ENV')
+    fetch_url = os.getenv('EXTERNAL_API_URL')
+
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
@@ -24,27 +26,29 @@ def create_app():
     @app.route('/')
     def index():
         context = {
-            'siteTitle': "Product list with cart",
+            'siteTitle': "Product list with cart extended",
             'mainTitle': "Desserts",
             'addToCartText': "Add to Cart",
-            'data': data
+            'data': data,
+            'fetch_url': fetch_url
         }
         return render_template('index.html', **context)
     
-    @app.route('/api/', methods=['GET'])
-    def api_user():
-        selected_user = request.args.get('id')
-        if not selected_user:
-            return jsonify({'error': 'User ID is required'}), 400
+    # only for server
+    # @app.route('/api/', methods=['GET'])
+    # def api_user():
+    #     selected_user = request.args.get('id')
+    #     if not selected_user:
+    #         return jsonify({'error': 'User ID is required'}), 400
 
-        external_api_url = os.getenv('EXTERNAL_API_URL')
-        response = requests.get(f'{external_api_url}/?id={selected_user}', headers={"Content-Type": "application/json"})
+    #     external_api_url = os.getenv('EXTERNAL_API_URL')
+    #     response = requests.get(f'{external_api_url}/?id={selected_user}', headers={"Content-Type": "application/json"})
 
-        if response.status_code != 200:
-            logger.error('Failed to fetch data from external API')
-            return jsonify({'error': 'Failed to fetch data from external API'}), response.status_code
+    #     if response.status_code != 200:
+    #         logger.error('Failed to fetch data from external API')
+    #         return jsonify({'error': 'Failed to fetch data from external API'}), response.status_code
 
-        return jsonify(response.json())    
+    #     return jsonify(response.json())    
 
     @app.route('/robots.txt')
     def robots_txt():

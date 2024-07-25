@@ -1,13 +1,13 @@
 {
     "compilerOptions": {
-        "target": "es2017", // Update target to es2017
+        "target": "es2017",
         "module": "commonjs",
         "outDir": "./app/static/dist",
         "rootDir": "./app/static/scripts",
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "lib": [
-            "es2017", // Update lib to es2017
+            "es2017",
             "dom"
         ]
     },
