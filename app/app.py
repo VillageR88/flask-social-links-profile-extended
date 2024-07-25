@@ -26,9 +26,7 @@ def create_app():
     @app.route('/')
     def index():
         context = {
-            'siteTitle': "Product list with cart extended",
-            'mainTitle': "Desserts",
-            'addToCartText': "Add to Cart",
+            'siteTitle': "Social links profile extended",
             'data': data,
             'fetch_url': fetch_url
         }

@@ -27,6 +27,8 @@ interface Achievement {
   badge: string;
   count: number;
 }
+declare const data: string[];
+
 const fetchUrl = "https://frontendmentorusers.villager88pl.workers.dev";
 
 document
@@ -53,6 +55,7 @@ function onInput() {
   if (!userInput || !userList) return;
   const value = userInput.value.toLowerCase();
   userList.innerHTML = '';
+
   for (const user of data.filter(user => user.toLowerCase().startsWith(value))) {
     const option = document.createElement('option');
     option.value = user;

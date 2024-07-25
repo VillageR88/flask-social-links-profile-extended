@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Product list with cart">
+    <meta name="description" content="Social links profile extended">
     <link rel="stylesheet" href="{{ url_for('static', filename='./css/style.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" type="image/png">
     <title>{{ siteTitle }}</title>
@@ -16,7 +16,8 @@
             <option>Frontend Mentor</option>
         </select>
         <form onsubmit="handleSubmit(event)">
-            <input oninput="onInput(data)" name="userInput" list="userList" id="userInput" placeholder="Enter username" title="User Input">
+            <input oninput="onInput(data)" name="userInput" list="userList" id="userInput" placeholder="Enter username"
+                title="User Input">
             <datalist id="userList">
                 {% for user in data|sort %}
                 <option value="{{ user }}">
@@ -25,8 +26,7 @@
             <button type="submit" title="search">
                 <svg height="14" width="14" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
                     <path
-                        d="M10.609 0c5.85 0 10.608 4.746 10.608 10.58 0 2.609-.952 5-2.527 6.847l5.112 5.087a.87.87 0 01-1.227 1.233l-5.118-5.093a10.58 10.58 0 01-6.848 2.505C4.759 21.16 0 16.413 0 10.58 0 4.747 4.76 0 10.609 0zm0 1.74c-4.891 0-8.87 3.965-8.87 8.84 0 4.874 3.979 8.84 8.87 8.84a8.855 8.855 0 006.213-2.537l.04-.047a.881.881 0 01.058-.053 8.786 8.786 0 002.558-6.203c0-4.875-3.979-8.84-8.87-8.84z"
-                         />
+                        d="M10.609 0c5.85 0 10.608 4.746 10.608 10.58 0 2.609-.952 5-2.527 6.847l5.112 5.087a.87.87 0 01-1.227 1.233l-5.118-5.093a10.58 10.58 0 01-6.848 2.505C4.759 21.16 0 16.413 0 10.58 0 4.747 4.76 0 10.609 0zm0 1.74c-4.891 0-8.87 3.965-8.87 8.84 0 4.874 3.979 8.84 8.87 8.84a8.855 8.855 0 006.213-2.537l.04-.047a.881.881 0 01.058-.053 8.786 8.786 0 002.558-6.203c0-4.875-3.979-8.84-8.87-8.84z" />
                 </svg>
             </button>
         </form>
@@ -38,21 +38,17 @@
             <h1 id="username">Karol</h1>
             <p id="location">Poland</p>
         </div>
-        <p id="bio">"discord: villager.88"</p>
+        <p id="bio">discord: villager.88</p>
         <ul id="links">
             <li><a href="https://www.codewars.com/users/VillageR.">Codewars</a></li>
-            <li><a href="https://villager88.github.io/Frontend_Mentor/link-sharing-app/share/?userEmail=karol.piecuch@wp.pl">website</a></li>
+            <li><a
+                    href="https://villager88.github.io/Frontend_Mentor/link-sharing-app/share/?userEmail=karol.piecuch@wp.pl">website</a>
+            </li>
             <li><a href="https://github.com/VillageR88">gitHub</a></li>
         </ul>
     </main>
-
-    <script>
-        const data = {{ data| tojson }};
-    </script>
-
+    <script>const data = {{ data| tojson }};</script>
     <script src="{{ url_for('static', filename='dist/main.js') }}"></script>
-
-
 </body>
 
 </html>
